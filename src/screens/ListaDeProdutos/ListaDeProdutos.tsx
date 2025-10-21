@@ -15,6 +15,7 @@ import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { ScrollArea } from "../../components/ui/scroll-area";
 import { Separator } from "../../components/ui/separator";
+import { useTheme, hexToRgba } from "../../lib/themes";
 
 const statsData = [
   {
@@ -108,9 +109,22 @@ const timelineSteps = [
 ];
 
 export const ListaDeProdutos = (): JSX.Element => {
+  const { theme, changeTheme, currentThemeName } = useTheme();
+
   return (
-    <div className="w-full min-h-screen relative bg-gradient-to-br from-[#0f0f1a] via-[#1a0f2e] to-[#0f0f1a]">
-      <header className="flex items-center justify-between px-[52px] py-6 bg-gradient-to-r from-[#1a1a2e]/90 to-[#1a1a2e]/70 backdrop-blur-xl border-b border-[#b76eff]/10 sticky top-0 z-50">
+    <div
+      className="w-full min-h-screen relative transition-all duration-500"
+      style={{
+        background: `linear-gradient(135deg, ${theme.colors.background} 0%, ${hexToRgba(theme.colors.primary, 0.05)} 50%, ${theme.colors.background} 100%)`
+      }}
+    >
+      <header
+        className="flex items-center justify-between px-[52px] py-6 backdrop-blur-xl border-b sticky top-0 z-50 transition-all duration-500"
+        style={{
+          background: `linear-gradient(to right, ${hexToRgba(theme.colors.surface, 0.9)}, ${hexToRgba(theme.colors.surface, 0.7)})`,
+          borderColor: hexToRgba(theme.colors.primary, 0.1)
+        }}
+      >
         <div className="flex items-center gap-8">
           <img
             className="w-[126px] h-[44.1px] object-cover"
@@ -118,7 +132,13 @@ export const ListaDeProdutos = (): JSX.Element => {
             src="/image-14.png"
           />
 
-          <nav className="inline-flex flex-col items-start gap-2.5 px-2 py-2 bg-[#1a1a2e]/40 backdrop-blur-xl rounded-full border border-[#b76eff]/10">
+          <nav
+            className="inline-flex flex-col items-start gap-2.5 px-2 py-2 backdrop-blur-xl rounded-full border transition-all duration-300"
+            style={{
+              background: hexToRgba(theme.colors.surface, 0.4),
+              borderColor: hexToRgba(theme.colors.primary, 0.1)
+            }}
+          >
             <div className="flex items-center gap-2">
               {navigationItems.map((item, index) => (
                 <Button
@@ -126,9 +146,26 @@ export const ListaDeProdutos = (): JSX.Element => {
                   variant="ghost"
                   className={`h-auto px-6 py-2.5 rounded-full transition-all duration-300 ${
                     item.active
-                      ? "bg-gradient-to-r from-[#b76eff] to-[#9b4dff] text-white shadow-xl shadow-[#b76eff]/40"
-                      : "text-gray-400 hover:text-white hover:bg-[#2a2a3e]/50"
+                      ? "text-white"
+                      : "hover:text-white"
                   } [font-family:'Inter',Helvetica] font-medium text-sm tracking-[0.50px] leading-6`}
+                  style={{
+                    background: item.active
+                      ? `linear-gradient(135deg, ${theme.colors.primary}, ${theme.colors.primaryDark})`
+                      : 'transparent',
+                    color: item.active ? theme.colors.textPrimary : theme.colors.textSecondary,
+                    boxShadow: item.active ? `0 10px 30px ${hexToRgba(theme.colors.primary, 0.4)}` : 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!item.active) {
+                      e.currentTarget.style.background = hexToRgba(theme.colors.surfaceLight, 0.5);
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!item.active) {
+                      e.currentTarget.style.background = 'transparent';
+                    }
+                  }}
                 >
                   {item.label}
                 </Button>
@@ -137,13 +174,49 @@ export const ListaDeProdutos = (): JSX.Element => {
           </nav>
         </div>
 
-        <Button
-          variant="outline"
-          className="h-auto inline-flex items-center gap-2.5 px-3 py-2 rounded-full border border-[#b76eff]/20 bg-[#1a1a2e]/40 backdrop-blur-xl hover:bg-[#2a2a3e]/70 hover:border-[#b76eff]/50 transition-all duration-300"
-        >
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#b76eff] to-[#9b4dff] shadow-lg shadow-[#b76eff]/30" />
-          <ChevronRightIcon className="w-5 h-5 text-gray-300" />
-        </Button>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 px-3 py-2 rounded-full backdrop-blur-xl border transition-all duration-300"
+            style={{
+              background: hexToRgba(theme.colors.surface, 0.4),
+              borderColor: hexToRgba(theme.colors.primary, 0.2)
+            }}
+          >
+            {Object.keys({default: '', neonBlue: '', emeraldGreen: ''}).map((themeName) => (
+              <button
+                key={themeName}
+                onClick={() => changeTheme(themeName as any)}
+                className="w-6 h-6 rounded-full transition-all duration-300 hover:scale-110 border-2"
+                style={{
+                  background: themeName === 'default'
+                    ? 'linear-gradient(135deg, #b66dff, #8b3ddb)'
+                    : themeName === 'neonBlue'
+                    ? 'linear-gradient(135deg, #00d4ff, #00a1cc)'
+                    : 'linear-gradient(135deg, #10b981, #059669)',
+                  borderColor: currentThemeName === themeName ? theme.colors.primary : 'transparent',
+                  boxShadow: currentThemeName === themeName ? `0 0 10px ${hexToRgba(theme.colors.primary, 0.5)}` : 'none'
+                }}
+                title={themeName === 'default' ? 'Purple Dream' : themeName === 'neonBlue' ? 'Neon Blue' : 'Emerald Green'}
+              />
+            ))}
+          </div>
+          <Button
+            variant="outline"
+            className="h-auto inline-flex items-center gap-2.5 px-3 py-2 rounded-full border backdrop-blur-xl transition-all duration-300"
+            style={{
+              background: hexToRgba(theme.colors.surface, 0.4),
+              borderColor: hexToRgba(theme.colors.primary, 0.2)
+            }}
+          >
+            <div
+              className="w-8 h-8 rounded-full shadow-lg"
+              style={{
+                background: `linear-gradient(135deg, ${theme.colors.primary}, ${theme.colors.primaryDark})`,
+                boxShadow: `0 4px 15px ${hexToRgba(theme.colors.primary, 0.3)}`
+              }}
+            />
+            <ChevronRightIcon className="w-5 h-5" style={{ color: theme.colors.textSecondary }} />
+          </Button>
+        </div>
       </header>
 
       <main className="flex gap-6 p-8 max-w-[1440px] mx-auto">
