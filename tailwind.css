@@ -1,0 +1,267 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --azul-timesazul-times-50: rgba(232, 234, 255, 1);
+  --azul-timesazul-times-500: rgba(21, 49, 255, 1);
+  --borda-suave: rgba(229, 229, 229, 1);
+  --brand-color: rgba(243, 17, 91, 1);
+  --color-dark-yellow: rgba(255, 214, 10, 1);
+  --color-grey-3: rgba(130, 130, 130, 1);
+  --color-grey-5: rgba(224, 224, 224, 1);
+  --color-light-green: rgba(52, 199, 89, 1);
+  --color-primary: rgba(9, 44, 76, 1);
+  --coresescala-de-cinzabranco-v1: rgba(255, 255, 255, 1);
+  --coresescala-de-cinzabranco-v2: rgba(247, 247, 247, 1);
+  --coresescala-de-cinzabranco-v3-borda: rgba(229, 229, 229, 1);
+  --coresescala-de-cinzacinza: rgba(159, 159, 159, 1);
+  --coresescala-de-cinzapreto-v1: rgba(12, 14, 19, 1);
+  --coresestadossuccess: rgba(39, 174, 96, 1);
+  --coresmarcabrand-credliber: rgba(243, 17, 91, 1);
+  --drop-shadoww: 0px 3px 10px -4px rgba(19, 21, 29, 0.4);
+  --escala-de-cinzabranco-v1: rgba(255, 255, 255, 1);
+  --escala-de-cinzabranco-v2: rgba(247, 247, 247, 1);
+  --escala-de-cinzabranco-v3-borda: rgba(229, 229, 229, 1);
+  --escala-de-cinzacinza: rgba(159, 159, 159, 1);
+  --escala-de-cinzapreto-v1: rgba(12, 14, 19, 1);
+  --estadoserror: rgba(235, 87, 87, 1);
+  --estadosinfo: rgba(47, 128, 237, 1);
+  --estadossuccess: rgba(39, 174, 96, 1);
+  --estadoswarning: rgba(226, 185, 59, 1);
+  --gray-0210: rgba(255, 255, 255, 1);
+  --gray-400: rgba(208, 208, 208, 1);
+  --gray-500: rgba(196, 196, 196, 1);
+  --gray02-20: rgba(245, 245, 245, 1);
+  --gray02-50: rgba(194, 194, 194, 1);
+  --grey: rgba(20, 20, 43, 1);
+  --iconbrowser-controlslight: rgba(60, 64, 67, 1);
+  --iconurl-controlsdisabledlight: rgba(186, 188, 190, 1);
+  --label-dark-primary: rgba(255, 255, 255, 1);
+  --label-dark-tertiary: rgba(235, 235, 245, 0.3);
+  --label-light-primary: rgba(0, 0, 0, 1);
+  --m-3syslightprimary: rgba(103, 80, 164, 1);
+  --m3-body-large-font-family: "Roboto", Helvetica;
+  --m3-body-large-font-size: 16px;
+  --m3-body-large-font-style: normal;
+  --m3-body-large-font-weight: 400;
+  --m3-body-large-letter-spacing: 0.5px;
+  --m3-body-large-line-height: 24px;
+  --m3-elevation-light-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px
+    rgba(0, 0, 0, 0.3);
+  --m3-elevation-light-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px
+    rgba(0, 0, 0, 0.15);
+  --m3-label-large-font-family: "Roboto", Helvetica;
+  --m3-label-large-font-size: 14px;
+  --m3-label-large-font-style: normal;
+  --m3-label-large-font-weight: 500;
+  --m3-label-large-letter-spacing: 0.10000000149011612px;
+  --m3-label-large-line-height: 20px;
+  --m3-label-medium-font-family: "Roboto", Helvetica;
+  --m3-label-medium-font-size: 12px;
+  --m3-label-medium-font-style: normal;
+  --m3-label-medium-font-weight: 500;
+  --m3-label-medium-letter-spacing: 0.5px;
+  --m3-label-medium-line-height: 16px;
+  --m3syslighton-surface-variant: rgba(73, 69, 79, 1);
+  --m3syslightsecondary-container: rgba(232, 222, 248, 1);
+  --marcabrand-credliber: rgba(243, 17, 91, 1);
+  --marcabrand-fgts-express: rgba(252, 71, 0, 1);
+  --marcabrand-fgts-express-10: rgba(255, 239, 232, 1);
+  --marcarosa-10: rgba(253, 242, 246, 1);
+  --old-colorsateno: rgba(226, 185, 59, 1);
+  --old-colorsborda-suave: rgba(229, 229, 229, 1);
+  --old-colorsbrand-color: rgba(243, 17, 91, 1);
+  --old-colorscinza: rgba(159, 159, 159, 1);
+  --old-colorscredliber-10-brand-color: rgba(253, 242, 246, 1);
+  --old-colorserro: rgba(235, 87, 87, 1);
+  --old-colorserro-background: rgba(255, 237, 237, 1);
+  --old-colorsinfo: rgba(47, 128, 237, 1);
+  --old-colorspreto-01: rgba(12, 14, 19, 1);
+  --old-colorspreto-02: rgba(19, 21, 29, 1);
+  --old-colorspreto-03: rgba(38, 41, 51, 1);
+  --preto: rgba(17, 17, 17, 1);
+  --preto-01: rgba(12, 14, 19, 1);
+  --primery-border: rgba(196, 186, 245, 1);
+  --shadow-effect: 0px 8px 16px -4px rgba(19, 21, 29, 0.08);
+  --shadows: 4px 6px 4px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px
+    rgba(0, 0, 0, 0.4);
+  --system-bg-dark-base-primary: rgba(0, 0, 0, 1);
+  --systemgreen-light: rgba(52, 199, 89, 1);
+  --text-normal-bold-font-family: "Inter", Helvetica;
+  --text-normal-bold-font-size: 16px;
+  --text-normal-bold-font-style: normal;
+  --text-normal-bold-font-weight: 700;
+  --text-normal-bold-letter-spacing: 0px;
+  --text-normal-bold-line-height: 22.399999618530273px;
+  --text-normal-font-family: "Inter", Helvetica;
+  --text-normal-font-size: 16px;
+  --text-normal-font-style: normal;
+  --text-normal-font-weight: 400;
+  --text-normal-letter-spacing: 0px;
+  --text-normal-line-height: 22.399999618530273px;
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 8%;
+    --foreground: 0 0% 100%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    --popover: 240 10% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+
+    --card: 240 10% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --primary: 276 100% 72%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 276 100% 72%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 276 100% 72%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[#0f0f1a] text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a0f2e 50%, #0f0f1a 100%);
+    background-attachment: fixed;
+  }
+}
